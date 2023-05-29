@@ -8,6 +8,8 @@ st.header('Método de Newton - Raphson')
 # Parámetros
 X0 = st.number_input('X0')
 Tol = st.number_input('Tolerancia (mayor que 0 y menor que 1)')
+if Tol < 0 or Tol > 1:
+    st.write('La tolerancia debe ser mayor que cero y menor que uno')
 Niter = st.number_input('Número de iteraciones')
 Fun = st.text_input('Ingrese la función')
 df = st.text_input('Ingrese la derivada de la función anterior')
@@ -50,6 +52,8 @@ elif Error<Tol:
 else:
     s=x
     st.write('Fracasó en '+str(Niter)+' iteraciones')
+
+st.subheader('TABLA')
 
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
 tabla = pd.DataFrame(data = d)
