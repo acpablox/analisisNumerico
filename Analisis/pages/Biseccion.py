@@ -4,11 +4,13 @@ import math
 import streamlit as st
 #import wdb
 #wdb.set_trace()
-
+st.header('Método de Bisección')
 # Parámetros
-Xi = st.number_input('Ingreae el valor de a')
+Xi = st.number_input('Ingrese el valor de a')
 Xs = st.number_input('Ingrese el valor de b')
 Tol = st.number_input('Ingrese el valor de la tolerancia (Mayor que 0 y menor que 1)')
+if Tol < 0 or Tol > 1:
+	st.write('Valor incorrecto de Tolerancia')
 Niter = st.number_input('Ingrese la cantidad de iteraciones')
 Fun = st.text_input('Ingrese la función')
 # Inicia el método de bisección
@@ -18,22 +20,31 @@ x=Xi
 fi=eval(Fun)
 x=Xs
 fs=eval(Fun)
-
+N = []
+xm = []
 if fi==0:
+	N = [0]
 	s=Xi
-	E=0
+	xm.append(Xi)
+	E=[1]
+	fm.append(fi)
 	st.write(str(Xi), "es raiz de f(x)")
 elif fs==0:
+	N = [0]
 	s=Xs
-	E=0
+	xm.append(Xs)
+	E = [1]
+	fm.append(fs)
 	st.write(str(Xs), "es raiz de f(x)")
 elif fs*fi<0:
 	c=0
+	N.append(c)
 	Xm=(Xi+Xs)/2
+	xm.append(Xm)
 	x=Xm                 
 	fe=eval(Fun)
 	fm.append(fe)
-	E.append(100)
+	E.append(1)
 	while E[c]>Tol and fe!=0 and c<Niter:
 		if fi*fe<0:
 			Xs=Xm
@@ -45,12 +56,14 @@ elif fs*fi<0:
 			fs=eval(Fun)
 		Xa=Xm
 		Xm=(Xi+Xs)/2
+		xm.append(Xm)
 		x=Xm 
 		fe=eval(Fun)
 		fm.append(fe)
 		Error=abs(Xm-Xa)
 		E.append(Error)
 		c=c+1
+		N.append(c)
 	if fe==0:
 		s=x
 		st.write(str(s)," es raiz de f(x)")
@@ -65,5 +78,6 @@ elif fs*fi<0:
 else:
 	st.write("El intervalo es inadecuado")
 
-
-
+d = {'Iteración': N,'Xn':xm,'fn':fm,'Error':E}
+tabla = pd.DataFrame(data = d)
+st.table(tabla)
