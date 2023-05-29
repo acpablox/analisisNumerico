@@ -2,13 +2,16 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import math
+st.header('Método de Jacobi')
 # Parámetros
-Tol = float(input('Ingrese la tolerancia'))
-niter = int(input('Ingrese la cantidad de iteraciones'))
-Astring = input('Ingrese el vector a')
-size = int(input('Ingrese el tamaño del vector A'))
-bString = input('Ingrese el vector b')
-x0string = input('Ingrese el valor inicial')
+Tol = st.number_input('Ingrese la tolerancia')
+if Tol < 0 or Tol > 1:
+    st.write('El valor de la tolerancia debe ser mayor a cero y menor que uno')
+niter = st.number_input('Ingrese la cantidad de iteraciones')
+Astring = st.text_input('Ingrese el vector a')
+size = st.number_input('Ingrese el tamaño del vector A')
+bString = st.text_input('Ingrese el vector b')
+x0string = st.text_input('Ingrese el valor inicial')
 # Inicia el método de Jacobi
 A = np.fromstring(Astring, dtype= float,sep=' ').reshape(size,size)
 b = np.fromstring(bString, dtype = float, sep = ' ').reshape(size,1)
@@ -47,3 +50,7 @@ else:
     n = c
     print('Fracasó en', niter, 'iteraciones')
 print(Err,N,x0s)
+
+d = {'Iteración': N,'Xn':x0s,'Error':Err}
+tabla = pd.DataFrame(data = d)
+st.table(tabla)
