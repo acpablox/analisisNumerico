@@ -55,6 +55,6 @@ plt.legend()
 plt.grid(True)
 plt.show()
 '''
-d = {'Iteración': x,'Xn':y}
+d = {'x': x}
 tabla = pd.DataFrame(data = d)
 st.line_chart(d)
