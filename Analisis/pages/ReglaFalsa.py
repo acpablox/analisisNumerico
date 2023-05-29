@@ -4,10 +4,13 @@ import numpy as np
 import math
 #import wdb
 #wdb.set_trace()it as st
+st.header('Método de Regla Falsa')
 
 a = st.number_input('Ingrese el valor de a')
 b = st.number_input('Ingrese el valor de b')
 tol = st.number_input('Ingrese el valor de la tolerancia (Mayor de 0 y menor de 1)')
+if tol < 0 or tol > 1:
+    st.write('La tolerancia debe ser mayor que cero y menor que uno')
 niter = st.number_input('Ingrese la cantidad de iteraciones')
 f = st.text_input('Ingrese la función')
 
