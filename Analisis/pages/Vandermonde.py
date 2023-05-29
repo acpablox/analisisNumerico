@@ -1,8 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import streamlit as st
 
-x = np.array([-2, -1, 2, 3])
-y = np.array([12.13533528, 6.367879441,  -4.610943901,  2.085536923])
+st.header('Método de VanderMonde')
+
+xString = st.text_input('Ingrese las coordenadas de x')
+yString = st.text_input('Ingrese las coordenadas de y')
+x = np.fromstring(xString, dtype = float, sep = ' ')
+y = np.fromstring(yString, dtype = float, sep = ' ')
 size = int(input('Ingrese el grado de la ecuación'))
 Apro = []
 for i in range(size,0,-1):
@@ -13,17 +18,22 @@ A = np.column_stack(Apro)
 b = y
 Ainv = np.linalg.inv(A)
 a = np.matmul(Ainv,b)
+print(a)
 p = 0
-xpol = np.arange(-2, 3.01, 0.01)
+xpol = np.arange(x[0], x[len(x)-1], 0.01)
 for i in range(size+1):
-    p =+ a[i] * xpol**(size-i)
+    p += a[i] * xpol**(size-i)
+funcion = ''
 print(p)
-p = a[0] * xpol**3 + a[1] * xpol**2 + a[2] * xpol + a[3]
-print(p)
-plt.plot(x, y, 'r*', label='Data Points')
-plt.plot(xpol, p, 'g-', label='Polynomial Fit')
+for i in range(size,0,-1):
+    funcion += str(a[size-i])+'x^'+str(i)+' '
+if a[len(a)-1] != 0:
+    funcion += str(a[len(a)-1])
+puntos = plt.plot(x, y, 'r*', label='Puntos')
+function = plt.plot(xpol, p, 'g-', label='Funcion Interpolada')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.grid(True)
 plt.legend()
 plt.show()
+st.plotly_chart((puntos,function))
