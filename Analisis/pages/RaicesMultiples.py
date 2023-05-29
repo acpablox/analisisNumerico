@@ -3,11 +3,16 @@ import numpy as np
 import pandas as pd
 import math
 import sympy as sp
+
+st.header('Método de Raíces Múltiples')
+
 # Parámetros
-a = int(input('Ingrese el valor de a'))
-tol = float(input('Ingrese el valor de la tolerancia (entre 0 y 1)'))
-niter = int(input('Ingrese la cantidad de iteraciones'))
-f = input('Ingrese la funcion')
+a = st.number_input('Ingrese el valor de a')
+tol = st.number_input('Ingrese el valor de la tolerancia (entre 0 y 1)')
+if tol < 0 or tol > 1:
+    st.write('La tolerancia debe ser mayor que cero y menor que uno')
+niter = st.number_input('Ingrese la cantidad de iteraciones')
+f = st.text_input('Ingrese la funcion')
 # Inicia el método de raíces múltiples
 x = sp.symbols('x')
 fun = sp.sympify(f)
@@ -42,7 +47,10 @@ while error > tol and c<=niter:
     xn.append(x0)
     fn.append(eval0)
 if error<=tol:
-    print(x1,'es una aproximacion de la raiz multiple')
+    st.write(x1,'es una aproximacion de la raiz multiple')
 else:
-    print('Fracaso en',niter,'iteraciones')
-print(E,N,xn,fn)
+    st.write('Fracaso en',niter,'iteraciones')
+
+d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
+tabla = pd.DataFrame(data = d)
+st.table(tabla)
