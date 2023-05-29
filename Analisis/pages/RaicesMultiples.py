@@ -13,9 +13,11 @@ if tol < 0 or tol > 1:
     st.write('La tolerancia debe ser mayor que cero y menor que uno')
 niter = st.number_input('Ingrese la cantidad de iteraciones')
 f = st.text_input('Ingrese la funcion')
+if f:
+    x = sp.symbols('x')
+    fun = sp.sympify(f)
 # Inicia el método de raíces múltiples
-x = sp.symbols('x')
-fun = sp.sympify(f)
+
 E =[]
 N = []
 xn = []
@@ -50,7 +52,6 @@ if error<=tol:
     st.write(x1,'es una aproximacion de la raiz multiple')
 else:
     st.write('Fracaso en',niter,'iteraciones')
-
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
 tabla = pd.DataFrame(data = d)
 st.table(tabla)
