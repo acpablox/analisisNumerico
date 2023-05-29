@@ -55,7 +55,5 @@ plt.legend()
 plt.grid(True)
 plt.show()
 '''
-chart_data = pd.DataFrame(
-    x,columns = y)
-
+chart_data = pd.DataFrame(x,y)
 st.line_chart(chart_data)
