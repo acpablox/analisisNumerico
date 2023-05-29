@@ -1,9 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
+import pandas as pd
+xString = st.text_input('Ingrese las coordenadas de x')
+yString = st.text_input('Ingrese las coordenadas de y')
 
-x = np.array([-2,-1,2,3])
-y = np.array([12,6,-4,2])
+x = np.fromstring(xString, dtype = float, sep = ' ')
+y = np.fromstring(yString, dtype = float, sep = ' ')
 
 n = len(x)
 A = np.zeros((2 * (n - 1), 2 * (n - 1)))
@@ -33,23 +36,25 @@ Tabla = np.reshape(val, (n - 1,2))
 
 st.write(Tabla)
 
-# Generate x values for plotting
-x_vals = np.linspace(x[0], x[-1], 100)
+# Valores de x
+xpol = np.linspace(x[0], x[-1], 100)
 
 # Evaluate the interpolated function at x values
-y_interp = np.zeros_like(x_vals)
+yInt = np.zeros_like(xpol)
 for i in range(len(x) - 1):
-    idx = (x_vals >= x[i]) & (x_vals <= x[i + 1])
-    x_interval = x_vals[idx]
-    y_interp[idx] = Tabla[i, 0] * x_interval + Tabla[i, 1]
-
+    idx = (xpol >= x[i]) & (xpol <= x[i + 1])
+    xintervalo = xpol[idx]
+    yInt[idx] = Tabla[i, 0] * xintervalo + Tabla[i, 1]
+'''
 # Plot the data points and interpolated function
-puntos = plt.plot(x, y, 'ro', label='Data Points')
-funcion = plt.plot(x_vals, y_interp, 'g-', label='Interpolated Function')
+puntos = plt.plot(x, y, 'r*', label='Puntos')
+funcion = plt.plot(xpol, yInt, 'g-', label='Funcion interpolada')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.legend()
 plt.grid(True)
 plt.show()
-
-st.plotly_chart(puntos)
+'''
+d = {'Iteración': x,'Xn':y}
+tabla = pd.DataFrame(data = d)
+st.line_chart(d)
