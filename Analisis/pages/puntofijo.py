@@ -8,6 +8,8 @@ st.header('Método de Punto Fijo')
 # Parámetros
 X0 = st.number_input('Ingrese el X0')
 Tol = st.number_input('Ingrese la tolerancia (Mayor que 0 y menor que 1)')
+if Tol < 0 or Tol > 1:
+    st.write('La tolerancia debe ser mayor que cero y menor que uno')
 Niter = st.number_input('Ingrese el número de iteraciones')
 Fun = st.text_input('Ingrese la función f')
 g = st.text_input('Ingrese la función g')
