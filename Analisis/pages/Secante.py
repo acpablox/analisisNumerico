@@ -4,12 +4,17 @@ import numpy as np
 import math
 #import wdb
 #wdb.set_trace()
+
+st.header('Método de la Secante')
+
 #Parámetros
-a = int(input('Ingrese el valor de a'))
-b = int(input('Ingrese el valor de b'))
-tol = float(input('Ingrese la tolerancia (entre 0 y 1)'))
-niter = int(input('Ingrese la cantidad de iteraciones'))
-fun = input('Ingrese la función')
+a = st.number_input('Ingrese el valor de a')
+b = st.number_input('Ingrese el valor de b')
+tol = st.number_input('Ingrese la tolerancia (entre 0 y 1)')
+if tol < 0 or tol > 1:
+    st.write('La tolerancia debe ser mayor que cero y menor que uno')
+niter = st.write('Ingrese la cantidad de iteraciones')
+fun = st.write('Ingrese la función')
 # Inicia el método de Secante
 E = []
 N = []
@@ -54,11 +59,9 @@ if error < tol:
     print(p,'es una aproximacion de la raiz de',fun)
 else:
     print('Fracaso en',niter,'iteraciones')
-print(E,N,xn,fn)
 
-'''
+st.subheader('TABLA')
+
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
 tabla = pd.DataFrame(data = d)
 st.table(tabla)
-''' 
- 
