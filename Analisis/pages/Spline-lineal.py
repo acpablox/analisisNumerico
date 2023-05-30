@@ -5,7 +5,7 @@ import pandas as pd
 
 st.header('Spline Lineal')
 
-xString = st.text_input('Ingrese las coordenadas de x')
+xString = st.text_input('Ingrese las coordenadas de x (en orden de mayor a menor)')
 yString = st.text_input('Ingrese las coordenadas de y')
 
 x = np.fromstring(xString, dtype=float, sep=' ')
