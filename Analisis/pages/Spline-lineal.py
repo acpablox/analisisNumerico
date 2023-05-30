@@ -24,7 +24,7 @@ for i in range(n - 1):
     b[i] = y[i]
     c += 2
     h += 1
-    
+
 c = 0
 for i in range(1, n):
     A[h, c] = x[i]
@@ -34,8 +34,8 @@ for i in range(1, n):
     h += 1
 
 val = np.linalg.inv(A) @ b
-Tabla = np.reshape(val, (n - 1,2))
-    
+Tabla = np.reshape(val, (n - 1, 2))
+
 st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
 st.write(Tabla)
 
@@ -54,5 +54,12 @@ ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
+
+# Sort the points based on the x-coordinate
+points_sorted = sorted(zip(x, y), key=lambda p: p[0])
+x_sorted, y_sorted = zip(*points_sorted)
+
+# Plot the sorted points with the same color as the original points
+ax.plot(x_sorted, y_sorted, 'r*', label='Puntos Ordenados')
 
 st.pyplot(fig)
