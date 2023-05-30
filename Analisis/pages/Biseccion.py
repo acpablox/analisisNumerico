@@ -79,15 +79,13 @@ elif fs*fi<0:
 else:
 	st.write("El intervalo es inadecuado")
 
-# Create a range of x values for the graph
 xs = Xs +2
 xi = Xi -2
 x_vals = np.linspace(xi, xs, 100)
 y_vals = [eval(Fun) for x in x_vals]
 
-# Plot the function graph
 plt.plot(x_vals, y_vals,color = 'g',label = Fun)
-plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.axhline(y=0, color='r', linestyle='--')  
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title('Gráfica de'+Fun)
