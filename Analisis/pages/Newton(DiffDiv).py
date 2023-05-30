@@ -45,8 +45,15 @@ st.write(pol)
 
 funcion = ''
 for i in range(size):
-    funcion += '+'+str(pol[i])+'*x^'+str(size-i)+' '
-funcion += '+'+str(pol[len(pol)-1])
+    if pol[i] >= 0:
+        funcion += '+'+str(pol[i])+'*x^'+str(size-i)+' '
+    else:
+        funcion += '-'+str(pol[i])+'*x^'+str(size-i)+' '
+if pol[len(pol)-1] > = 0:
+    funcion += '+'+str(pol[len(pol)-1])
+else:
+    funcion += '-'+str(pol[len(pol)-1])
+
 st.write('Polinomio:')
 st.write(funcion)
 
