@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 #import wdb
 #wdb.set_trace()
 st.header('Método de Punto Fijo')
@@ -50,6 +51,23 @@ else:
     s=x
     st.write("Fracaso en "+ str(Niter)+ " iteraciones ") 
 
+xs = X0 +2
+xi = X0 -2
+x_vals = np.linspace(xi, xs, 100)
+y_vals = [eval(Fun) for x in x_vals]
+
+plt.plot(x_vals, y_vals,color = 'g',label = Fun)
+plt.axhline(y=0, color='r', linestyle='--')  
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Gráfica de'+Fun)
+plt.grid(True)
+plt.legend()
+st.pyplot(plt)
+
+	
+st.subheader('TABLA')
+	
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
 tabla = pd.DataFrame(data = d)
 st.table(tabla)
