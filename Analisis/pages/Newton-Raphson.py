@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 #import wdb
 #wdb.set_trace()
 st.header('Método de Newton - Raphson')
