@@ -53,6 +53,24 @@ else:
     s=x
     st.write('Fracasó en '+str(Niter)+' iteraciones')
 
+    
+x1 = x0 - 2
+x2 = x0 +2
+x_vals = np.linspace(x1, x2, 100)
+y_vals = [eval(Fun) for x in x_vals]
+
+# Plot the function graph
+plt.plot(x_vals, y_vals,color = 'g',label = Fun)
+plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Gráfica de'+Fun)
+plt.grid(True)
+plt.legend()
+st.pyplot(plt)
+
+    
+    
 st.subheader('TABLA')
 
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
