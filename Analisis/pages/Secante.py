@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 #import wdb
 #wdb.set_trace()
 
@@ -59,6 +60,24 @@ if error < tol:
     print(p,'es una aproximacion de la raiz de',fun)
 else:
     print('Fracaso en',niter,'iteraciones')
+
+    
+xs = b + 2
+xi = a -2
+x_vals = np.linspace(xi, xs, 100)
+y_vals = [eval(fun) for x in x_vals]
+
+# Plot the function graph
+plt.plot(x_vals, y_vals,color = 'g',label = Fun)
+plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Gráfica de'+fun)
+plt.grid(True)
+plt.legend()
+st.pyplot(plt)
+    
+    
 
 st.subheader('TABLA')
 
