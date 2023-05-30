@@ -83,7 +83,7 @@ yInt = np.zeros_like(xpol)
 for i in range(len(x) - 1):
     idx = (xpol >= x[i]) & (xpol <= x[i + 1])
     xintervalo = xpol[idx]
-    yInt[idx] = Tabla[i, 0] * xintervalo + Tabla[i, 1]
+    yInt[idx] = Tabla[0, i] * xintervalo ** 3 + Tabla[1, i] * xintervalo ** 2 + Tabla[2, i] * xintervalo + Tabla[3, i]
 st.subheader('Gráfica')
 fig, ax = plt.subplots()
 puntos = ax.plot(x, y, 'r*', label='Puntos')
