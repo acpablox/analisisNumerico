@@ -80,7 +80,9 @@ else:
 	st.write("El intervalo es inadecuado")
 
 # Create a range of x values for the graph
-x_vals = np.linspace(Xi, Xs, 100)
+xs = Xs +100
+xi = Xi -100
+x_vals = np.linspace(xi, xs, 100)
 y_vals = [eval(Fun) for x in x_vals]
 
 # Plot the function graph
