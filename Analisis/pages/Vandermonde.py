@@ -4,7 +4,7 @@ import streamlit as st
 
 st.header('Método de VanderMonde')
 
-xString = st.text_input('Ingrese las coordenadas de x')
+xString = st.text_input('Ingrese las coordenadas de x (en orden de menor a mayor)')
 yString = st.text_input('Ingrese las coordenadas de y')
 x = np.fromstring(xString, dtype = float, sep = ' ')
 y = np.fromstring(yString, dtype = float, sep = ' ')
