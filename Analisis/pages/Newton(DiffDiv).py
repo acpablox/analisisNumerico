@@ -1,6 +1,7 @@
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
+from sympy import symbols, evalf
 st.header('Método de diferencias divididas')
 
 xString = st.text_input('Ingrese las coordenadas de x')
