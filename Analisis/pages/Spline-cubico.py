@@ -70,11 +70,11 @@ A[h, c + 1] = 2
 b[h] = 0
 
 val = np.linalg.inv(A) @ b
-Tabla = np.reshape(val, (n - 1,4))
-
+Tablal = np.reshape(val, (n - 1,4))
+Tabla = np.transpose(Tablal)
 st.write('La siguiente tabla muestra las funciones con sus valores de columna x**3,x**2,x y término independiente, respectivamente.')
 st.subheader('TABLA')
-st.write(Tabla)
+st.write(Tablal)
 
 xpol = np.linspace(min(x), max(x), 100)
 
