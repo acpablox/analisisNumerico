@@ -8,7 +8,7 @@ xString = st.text_input('Ingrese las coordenadas de x')
 yString = st.text_input('Ingrese las coordenadas de y')
 x = np.fromstring(xString, dtype = float, sep = ' ')
 y = np.fromstring(yString, dtype = float, sep = ' ')
-size = st.number_input('Ingrese el grado de la ecuación')
+size = int(st.number_input('Ingrese el grado de la ecuación'))
 Apro = []
 for i in range(size,0,-1):
     p = list(x**i)
