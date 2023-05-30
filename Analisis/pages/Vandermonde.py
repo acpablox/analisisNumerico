@@ -29,6 +29,7 @@ for i in range(size,0,-1):
     funcion += str(a[size-i])+'x^'+str(i)+' '
 if a[len(a)-1] != 0:
     funcion += str(a[len(a)-1])
+st.write(funcion)
 fig, ax = plt.subplots()
 puntos = ax.plot(x,y,'r*',label='Puntos')
 funcion = ax.plot(xpol,p,'g-',label='Funcion interpolada')
