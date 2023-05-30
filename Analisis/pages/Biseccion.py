@@ -80,8 +80,8 @@ else:
 	st.write("El intervalo es inadecuado")
 
 # Create a range of x values for the graph
-xs = Xs +5
-xi = Xi -5
+xs = Xs +2
+xi = Xi -2
 x_vals = np.linspace(xi, xs, 100)
 y_vals = [eval(Fun) for x in x_vals]
 
