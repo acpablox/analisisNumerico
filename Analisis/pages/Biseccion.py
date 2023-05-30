@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import math
 import streamlit as st
+import matplotlib.pyplot as plt
 #import wdb
 #wdb.set_trace()
 st.header('Método de Bisección')
