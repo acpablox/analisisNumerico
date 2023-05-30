@@ -1,7 +1,7 @@
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
-from sympy import symbols, evalf
+from sympy import symbols
 st.header('Método de diferencias divididas')
 
 xString = st.text_input('Ingrese las coordenadas de x')
@@ -61,7 +61,7 @@ st.write(funcion)
 x_values = np.linspace(x[0], x[-1], 100)  # Generate 100 points between x[0] and x[-1]
 
 x_sym = symbols('x')
-y_sym = evalf(funcion.replace('^', '**').replace('x', 'x_sym'))
+y_sym = eval(funcion.replace('^', '**').replace('x', 'x_sym')).evalf()
 
 fig, ax = plt.subplots()
 ax.plot(x_values, [y_sym.subs(x_sym, x_val) for x_val in x_values], label='Funcion')
