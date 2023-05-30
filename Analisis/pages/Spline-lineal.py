@@ -8,8 +8,8 @@ st.header('Spline Lineal')
 xString = st.text_input('Ingrese las coordenadas de x')
 yString = st.text_input('Ingrese las coordenadas de y')
 
-x = np.fromstring(xString, dtype = float, sep = ' ')
-y = np.fromstring(yString, dtype = float, sep = ' ')
+x = np.fromstring(xString, dtype=float, sep=' ')
+y = np.fromstring(yString, dtype=float, sep=' ')
 
 n = len(x)
 A = np.zeros((2 * (n - 1), 2 * (n - 1)))
@@ -46,11 +46,13 @@ for i in range(len(x) - 1):
     idx = (xpol >= x[i]) & (xpol <= x[i + 1])
     xintervalo = xpol[idx]
     yInt[idx] = Tabla[i, 0] * xintervalo + Tabla[i, 1]
-fig,ax = plt.subplots()
-puntos = ax.plot(x,y,'r*',label='Puntos')
-funcion = ax.plot(xpol, yInt, 'g-',label='Funcion interpolada')
+
+fig, ax = plt.subplots()
+puntos = ax.plot(x, y, 'r*', label='Puntos')
+funcion = ax.plot(xpol, yInt, 'g-', label='Funcion interpolada')
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
+
 st.pyplot(fig)
