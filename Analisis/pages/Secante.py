@@ -68,7 +68,7 @@ x_vals = np.linspace(xi, xs, 100)
 y_vals = [eval(fun) for x in x_vals]
 
 # Plot the function graph
-plt.plot(x_vals, y_vals,color = 'g',label = Fun)
+plt.plot(x_vals, y_vals,color = 'g',label = fun)
 plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
 plt.xlabel('x')
 plt.ylabel('f(x)')
