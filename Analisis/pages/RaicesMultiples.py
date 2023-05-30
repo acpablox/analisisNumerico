@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import math
 import sympy as sp
+import matplotlib.pyplot as plt
 
 st.header('Método de Raíces Múltiples')
 
@@ -52,6 +53,23 @@ if f:
         st.write(x1,'es una aproximacion de la raiz multiple')
     else:
         st.write('Fracaso en',niter,'iteraciones')
-    d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
-    tabla = pd.DataFrame(data = d)
-    st.table(tabla)
+    
+xs = a +2
+xi = a -2
+x_vals = np.linspace(xi, xs, 100)
+y_vals = [eval(f) for x in x_vals]
+
+plt.plot(x_vals, y_vals,color = 'g',label = f)
+plt.axhline(y=0, color='r', linestyle='--')  
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Gráfica de'+f)
+plt.grid(True)
+plt.legend()
+st.pyplot(plt)
+
+
+st.subheader('TABLA')
+d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':E}
+tabla = pd.DataFrame(data = d)
+st.table(tabla)
