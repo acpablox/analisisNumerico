@@ -49,7 +49,7 @@ for i in range(size):
         funcion += '+'+str(pol[i])+'*x^'+str(size-i)+' '
     else:
         funcion += '-'+str(pol[i])+'*x^'+str(size-i)+' '
-if pol[len(pol)-1] > = 0:
+if pol[len(pol)-1] >= 0:
     funcion += '+'+str(pol[len(pol)-1])
 else:
     funcion += '-'+str(pol[len(pol)-1])
