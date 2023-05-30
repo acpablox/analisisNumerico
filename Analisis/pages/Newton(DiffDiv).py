@@ -60,7 +60,7 @@ aux = x[0]
 st.write(aux)
 aux1 = x[-1]
 st.write(aux1)
-x = np.linspace(aux[0],aux1[0],1)
+x = np.linspace(aux[0],aux1[0],0.01)
 y = eval(funcion)
 fig,ax = plt.subplots()
 ax.plot(x,y)
