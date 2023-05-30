@@ -53,6 +53,8 @@ else:
     print("Fracasó en", niter, "iteraciones")
 print(Err,N,x0s)
 
-d = {'Iteración': N,'Xn':x0s,'Error':Err}
-tabla = pd.DataFrame(data = d)
+x0s_array = np.concatenate(x0s, axis=1)  # Convert the list of arrays to a 2D NumPy array
+
+d = {'Iteración': N, 'Xn': x0s_array.flatten(), 'Error': Err}
+tabla = pd.DataFrame(data=d)
 st.table(tabla)
