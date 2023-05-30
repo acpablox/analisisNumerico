@@ -65,6 +65,7 @@ y_sym = eval(funcion.replace('^', '**').replace('x', 'x_sym')).evalf()
 
 fig, ax = plt.subplots()
 ax.plot(x_values, [y_sym.subs(x_sym, x_val) for x_val in x_values], label='Funcion')
+ax.plot(x,y,'r*',label='Puntos')
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.legend()
