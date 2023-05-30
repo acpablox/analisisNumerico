@@ -57,5 +57,5 @@ plt.show()
 '''
 d = {'y':y}
 chart_data = pd.DataFrame(data=d)
-st.line_chart(data = chart_data,x='x')
+st.line_chart(data = chart_data,x=x)
 
