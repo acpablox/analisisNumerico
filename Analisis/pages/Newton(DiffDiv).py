@@ -50,3 +50,16 @@ funcion += str(pol[len(pol)-1])
 st.write('Polinomio:')
 st.write(funcion)
 
+# Plotting the function
+x_vals = np.linspace(x[0], x[-1], 100)
+y_vals = np.polyval(pol[::-1], x_vals)  # Evaluate the polynomial at x_vals
+
+fig, ax = plt.subplots()
+ax.plot(x, y, 'r*', label='Puntos')
+ax.plot(x_vals, y_vals, 'g-', label='Funcion interpolada')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.legend()
+ax.grid(True)
+
+st.pyplot(fig)
