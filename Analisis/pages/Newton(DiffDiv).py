@@ -56,8 +56,9 @@ else:
 
 st.write('Polinomio:')
 st.write(funcion)
-
-x = np.linspace(x[0],x[-1],1)
+aux = x[0]
+aux1 = x[-1]
+x = np.linspace(aux[0],aux1[0],1)
 y = eval(funcion)
 fig,ax = plt.subplots()
 ax.plot(x,y)
