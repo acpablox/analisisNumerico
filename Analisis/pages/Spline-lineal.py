@@ -33,7 +33,7 @@ for i in range(1, n):
 val = np.linalg.inv(A) @ b
 Tabla = np.reshape(val, (n - 1,2))
     
-
+st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
 st.write(Tabla)
 
 # Valores de x
