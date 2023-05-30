@@ -50,7 +50,7 @@ funcion += str(pol[len(pol)-1])
 st.write('Polinomio:')
 st.write(funcion)
 
-x = np.linspace(x[0],x[-1],0.01)
+x = np.linspace(x[0],x[-1],1)
 y = eval(funcion)
 fig,ax = plt.subplots()
 ax.plot(x,y)
