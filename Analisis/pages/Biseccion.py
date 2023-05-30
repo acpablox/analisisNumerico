@@ -87,10 +87,11 @@ y_vals = [eval(Fun) for x in x_vals]
 
 # Plot the function graph
 plt.plot(x_vals, y_vals)
-plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.axhline(y=0, color='r', linestyle='--',label = Fun)  # Add x-axis line
 plt.xlabel('x')
 plt.ylabel('f(x)')
-plt.title('Graph of f(x)')
+plt.title('Gráfica de'+Fun)
+plt.grid(True)
 st.pyplot(plt)
 
 	
