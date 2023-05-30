@@ -14,7 +14,7 @@ tol = st.number_input('Ingrese la tolerancia (entre 0 y 1)')
 if tol < 0 or tol > 1:
     st.write('La tolerancia debe ser mayor que cero y menor que uno')
 niter = st.number_input('Ingrese la cantidad de iteraciones')
-fun = st.number_input('Ingrese la función')
+fun = st.text_input('Ingrese la función')
 # Inicia el método de Secante
 E = []
 N = []
