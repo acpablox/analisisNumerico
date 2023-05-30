@@ -92,6 +92,7 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title('Gráfica de'+Fun)
 plt.grid(True)
+plt.legend()
 st.pyplot(plt)
 
 	
