@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 #import wdb
 #wdb.set_trace()it as st
 st.header('Método de Regla Falsa')
@@ -83,7 +84,22 @@ if tol > E:
 else:
     st.write('Fracasó en ',niter,' iteraciones')
 
-st.write(N,Error,xn,fn)
+# Create a range of x values for the graph
+xs = b +2
+xi = a -2
+x_vals = np.linspace(xi, xs, 100)
+y_vals = [eval(f) for x in x_vals]
+
+# Plot the function graph
+plt.plot(x_vals, y_vals,color = 'g',label = f)
+plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Gráfica de'+f)
+plt.grid(True)
+plt.legend()
+st.pyplot(plt)
+
 
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':Error}
 tabla = pd.DataFrame(data = d)
