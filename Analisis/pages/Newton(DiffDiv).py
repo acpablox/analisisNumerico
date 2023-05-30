@@ -51,7 +51,7 @@ st.write('Polinomio:')
 st.write(funcion)
 
 # Plotting the function
-x_vals = np.linspace(x[0], x[-1], 100)
+x_vals = np.linspace(x[0], x[-1], 0.01)
 y_vals = np.polyval(pol[::-1], x_vals)  # Evaluate the polynomial at x_vals
 
 fig, ax = plt.subplots()
