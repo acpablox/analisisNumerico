@@ -73,7 +73,7 @@ val = np.linalg.inv(A) @ b
 Tabla = np.reshape(val, (n - 1,4))
 Tabla = np.transpose(Tabla)
 
-st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
+st.write('La siguiente tabla muestra las funciones con sus valores de columna x**3,x**2,x y término independiente, respectivamente.')
 st.subheader('TABLA')
 st.write(Tabla)
 
