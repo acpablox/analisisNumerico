@@ -9,7 +9,7 @@ if Tol < 0 or Tol > 1:
     st.write('El valor de la tolerancia debe ser mayor a cero y menor que uno')
 niter = st.number_input('Ingrese la cantidad de iteraciones')
 Astring = st.text_input('Ingrese el vector a')
-size = st.number_input('Ingrese el tamaño del vector A')
+size = int(st.number_input('Ingrese el tamaño del vector A'))
 bString = st.text_input('Ingrese el vector b')
 x0string = st.text_input('Ingrese el valor inicial')
 # Inicia el método de Jacobi
@@ -51,6 +51,14 @@ else:
     print('Fracasó en', niter, 'iteraciones')
 print(Err,N,x0s)
 
-d = {'Iteración': N,'Xn':x0s,'Error':Err}
-tabla = pd.DataFrame(data = d)
+max_len = max(len(N), len(Err), len(x0s))  # Find the maximum length
+# Pad the lists with NaN values to ensure they have the same length
+N.extend([np.nan] * (max_len - len(N)))
+Err.extend([np.nan] * (max_len - len(Err)))
+x0s.extend([np.full((size, 1), np.nan)] * (max_len - len(x0s)))
+x0s_str = [str(arr) for arr in x0s]
+
+# Create the DataFrame
+d = {'Iteración': N, 'Xn': x0s_str, 'Error': Err}
+tabla = pd.DataFrame(data=d)
 st.table(tabla)
