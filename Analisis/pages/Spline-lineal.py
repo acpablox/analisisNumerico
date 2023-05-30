@@ -39,10 +39,8 @@ Tabla = np.reshape(val, (n - 1,2))
 st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
 st.write(Tabla)
 
-# Valores de x
 xpol = np.linspace(x[0], x[-1], 100)
 
-# Evaluate the interpolated function at x values
 yInt = np.zeros_like(xpol)
 for i in range(len(x) - 1):
     idx = (xpol >= x[i]) & (xpol <= x[i + 1])
