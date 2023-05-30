@@ -58,7 +58,9 @@ max_len = max(len(N), len(Err), len(x0s))  # Find the maximum length
 N.extend([np.nan] * (max_len - len(N)))
 Err.extend([np.nan] * (max_len - len(Err)))
 x0s.extend([np.full((size, 1), np.nan)] * (max_len - len(x0s)))
+x0s_str = [str(arr) for arr in x0s]
 
-d = {'Iteración': N, 'Xn': x0s, 'Error': Err}
+# Create the DataFrame
+d = {'Iteración': N, 'Xn': x0s_str, 'Error': Err}
 tabla = pd.DataFrame(data=d)
 st.table(tabla)
