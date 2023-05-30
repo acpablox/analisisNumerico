@@ -23,6 +23,8 @@ p = 0
 xpol = np.arange(x[0], x[len(x)-1], 0.01)
 for i in range(size+1):
     p += a[i] * xpol**(size-i)
+if a[-1] != 0:
+    p += a[-1] 
 funcion = ''
 print(p)
 for i in range(size,0,-1):
