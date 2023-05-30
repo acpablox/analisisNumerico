@@ -45,7 +45,7 @@ st.write(pol)
 
 funcion = ''
 for i in range(size):
-    funcion += str(pol[i])+'*x^'+str(size-i)+' '
+    funcion += '+'str(pol[i])+'*x^'+str(size-i)+' '
 funcion += str(pol[len(pol)-1])
 st.write('Polinomio:')
 st.write(funcion)
