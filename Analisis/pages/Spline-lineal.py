@@ -39,7 +39,7 @@ Tabla = np.reshape(val, (n - 1,2))
 st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
 st.write(Tabla)
 
-xpol = np.linspace(x[0], x[-1], 100)
+xpol = np.linspace(min(x), max(x), 100)
 
 yInt = np.zeros_like(xpol)
 for i in range(len(x) - 1):
