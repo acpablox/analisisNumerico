@@ -54,8 +54,8 @@ else:
     st.write('Fracasó en '+str(Niter)+' iteraciones')
 
     
-x1 = x0 - 2
-x2 = x0 +2
+x1 = X0 - 2
+x2 = X0 +2
 x_vals = np.linspace(x1, x2, 100)
 y_vals = [eval(Fun) for x in x_vals]
 
