@@ -56,4 +56,4 @@ plt.grid(True)
 plt.show()
 '''
 #chart_data = pd.DataFrame((y,x),*)
-st.line_chart(data = pd.DataFrame,*,x= xString ,y=yString)
+st.line_chart(data = pd.DataFrame,x= xString ,y=yString)
