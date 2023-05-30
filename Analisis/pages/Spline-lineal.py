@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
+
+st.header('Spline Lineal')
+
 xString = st.text_input('Ingrese las coordenadas de x')
 yString = st.text_input('Ingrese las coordenadas de y')
 
