@@ -62,4 +62,4 @@ ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
 
-st.pyplot(fig.figure)
+st.pyplot(fig)
