@@ -56,16 +56,16 @@ else:
 
 st.write('Polinomio:')
 st.write(funcion)
-aux = x[0] 
-st.write(aux)
-aux1 = x[-1]
-st.write(aux1)
-x = np.linspace(aux,aux1,100)
-y = eval(funcion)
-fig,ax = plt.subplots()
-ax.plot(x,y)
+
+x_values = np.linspace(x[0], x[-1], 100)  # Generate 100 points between x[0] and x[-1]
+
+x_sym = symbols('x')
+y_sym = evalf(funcion.replace('^', '**').replace('x', 'x_sym'))
+
+fig, ax = plt.subplots()
+ax.plot(x_values, [y_sym.subs(x_sym, x_val) for x_val in x_values], label='Funcion')
 ax.set_xlabel('x')
-plt.set_ylabel('y')
+ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
 st.pyplot(fig)
