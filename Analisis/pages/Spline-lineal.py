@@ -36,6 +36,7 @@ val = np.linalg.inv(A) @ b
 Tabla = np.reshape(val, (n - 1, 2))
 
 st.write('La siguiente tabla muestra las funciones, donde la primera columna corresponde a los x y la segunda columna al término independiente')
+st.subheader('TABLA')
 st.write(Tabla)
 
 xpol = np.linspace(min(x), max(x), 100)
@@ -45,7 +46,7 @@ for i in range(len(x) - 1):
     idx = (xpol >= x[i]) & (xpol <= x[i + 1])
     xintervalo = xpol[idx]
     yInt[idx] = Tabla[i, 0] * xintervalo + Tabla[i, 1]
-
+st.subheader('Gráfica')
 fig, ax = plt.subplots()
 puntos = ax.plot(x, y, 'r*', label='Puntos')
 funcion = ax.plot(xpol, yInt, 'g-', label='Funcion interpolada')
