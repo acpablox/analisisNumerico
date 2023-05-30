@@ -51,14 +51,12 @@ else:
     print('Fracasó en', niter, 'iteraciones')
 print(Err,N,x0s)
 
-max_len = max(len(N), len(Err), len(x0s))  # Find the maximum length
-# Pad the lists with NaN values to ensure they have the same length
+max_len = max(len(N), len(Err), len(x0s))  
 N.extend([np.nan] * (max_len - len(N)))
 Err.extend([np.nan] * (max_len - len(Err)))
 x0s.extend([np.full((size, 1), np.nan)] * (max_len - len(x0s)))
 x0s_str = [str(arr) for arr in x0s]
 
-# Create the DataFrame
 d = {'Iteración': N, 'Xn': x0s_str, 'Error': Err}
 tabla = pd.DataFrame(data=d)
 st.table(tabla)
