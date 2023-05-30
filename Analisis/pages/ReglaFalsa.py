@@ -85,8 +85,8 @@ else:
     st.write('Fracasó en ',niter,' iteraciones')
 
 # Create a range of x values for the graph
-xs = b +2
-xi = a -2
+xs = b +1
+xi = a -1
 x_vals = np.linspace(xi, xs, 100)
 y_vals = [eval(f) for x in x_vals]
 
