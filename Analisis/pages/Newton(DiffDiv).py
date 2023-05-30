@@ -1,6 +1,6 @@
 import numpy as np
 import streamlit as st
-import matplotlib.pyplot as plt
+import streamlit.pyplot as plt
 st.header('Método de diferencias divididas')
 
 xString = st.text_input('Ingrese las coordenadas de x')
@@ -62,4 +62,4 @@ ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
 
-st.pyplot(fig)
+st.pyplot(fig.figure)
