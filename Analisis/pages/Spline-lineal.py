@@ -45,17 +45,11 @@ for i in range(len(x) - 1):
     idx = (xpol >= x[i]) & (xpol <= x[i + 1])
     xintervalo = xpol[idx]
     yInt[idx] = Tabla[i, 0] * xintervalo + Tabla[i, 1]
-'''
-# Plot the data points and interpolated function
-puntos = plt.plot(x, y, 'r*', label='Puntos')
-funcion = plt.plot(xpol, yInt, 'g-', label='Funcion interpolada')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
-plt.grid(True)
-plt.show()
-'''
-d = {'y':y}
-chart_data = pd.DataFrame(data=d)
-st.line_chart(data = chart_data,x=x)
-
+fig,ax = plt.subplots()
+puntos = ax.plot(x,y,'r*',label='Puntos')
+funcion = ax.plot(xpol, yInt, 'g-',label='Funcion interpolada')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.legend()
+ax.grid(True)
+st.pyplot(fig)
