@@ -58,7 +58,8 @@ while tol < E and niter > n:
         E = abs(xa-xi)
         Error.append(E)
     else:
-        continue
+        E = abs(xn[n] - xn[n - 1])
+        Error.append(E)
     if evalxi >= evala:
         if evalxi <= evalb:
             a = xi
@@ -75,11 +76,6 @@ while tol < E and niter > n:
     x = b
     evalb = eval(f)
     xiNew = ((a * evalb) - (b * evala)) / (evalb - evala)
-
-    
-    E = abs(xiNew - xi)
-    Error.append(E)
-
     n = n + 1
     N.append(n)
 if tol > E:
