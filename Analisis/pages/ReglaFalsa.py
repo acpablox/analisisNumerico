@@ -98,7 +98,7 @@ plt.grid(True)
 plt.legend()
 st.pyplot(plt)
 
-st.write('TABLA')
+st.subheader('TABLA')
 
 d = {'Iteración': N,'Xn':xn,'fn':fn,'Error':Error}
 tabla = pd.DataFrame(data = d)
