@@ -53,8 +53,12 @@ else:
     print("Fracasó en", niter, "iteraciones")
 print(Err,N,x0s)
 
-x0s_array = np.concatenate(x0s, axis=1)  # Convert the list of arrays to a 2D NumPy array
+max_len = max(len(N), len(Err), len(x0s))  # Find the maximum length
+# Pad the lists with NaN values to ensure they have the same length
+N.extend([np.nan] * (max_len - len(N)))
+Err.extend([np.nan] * (max_len - len(Err)))
+x0s.extend([np.full((size, 1), np.nan)] * (max_len - len(x0s)))
 
-d = {'Iteración': N, 'Xn': x0s_array.flatten(), 'Error': Err}
+d = {'Iteración': N, 'Xn': x0s, 'Error': Err}
 tabla = pd.DataFrame(data=d)
 st.table(tabla)
