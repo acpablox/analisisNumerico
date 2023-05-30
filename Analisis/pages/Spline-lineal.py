@@ -14,17 +14,16 @@ y = np.fromstring(yString, dtype=float, sep=' ')
 n = len(x)
 A = np.zeros((2 * (n - 1), 2 * (n - 1)))
 b = np.zeros((2 * (n - 1), 1))
-cua = x ** 2
-cub = x ** 3
 c = 0
 h = 0
+
 for i in range(n - 1):
     A[i, c] = x[i]
     A[i, c + 1] = 1
     b[i] = y[i]
     c += 2
     h += 1
-
+    
 c = 0
 for i in range(1, n):
     A[h, c] = x[i]
@@ -54,12 +53,5 @@ ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.legend()
 ax.grid(True)
-
-# Sort the points based on the x-coordinate
-points_sorted = sorted(zip(x, y), key=lambda p: p[0])
-x_sorted, y_sorted = zip(*points_sorted)
-
-# Plot the sorted points with the same color as the original points
-ax.plot(x_sorted, y_sorted, 'r*', label='Puntos Ordenados')
 
 st.pyplot(fig)
