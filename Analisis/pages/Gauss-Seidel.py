@@ -11,7 +11,7 @@ if Tol < 0 or Tol > 1:
     st.write('La tolerancia debe ser mayor que cero y menor que uno')
 niter = st.number_input('Ingrese la cantidad de iteraciones')
 Astring = st.text_input('Ingrese el vector a')
-size = st.number_input('Ingrese el tamaño del vector A')
+size = int(st.number_input('Ingrese el tamaño del vector A'))
 bString = st.text_input('Ingrese el vector b')
 x0string = st.text_input('Ingrese el valor inicial')
 # Inicia el método de Gauss-Seidel
