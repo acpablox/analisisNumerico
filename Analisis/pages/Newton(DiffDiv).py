@@ -16,7 +16,7 @@ tabla[:, 1] = y
 
 for i in range(1, n):
     for j in range(2, n+1):
-        if tabla[i][j-1] == 0 or tabla[i-1][j-1] == 0:
+        if tabla[i][j-1] == 0 and tabla[i-1][j-1] == 0:
             tabla[i][j] = 0
             continue
         tabla[i][j] = (tabla[i][j-1]-tabla[i-1][j-1])/(x[j-1]-tabla[0][0])
