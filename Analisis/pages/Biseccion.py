@@ -78,6 +78,19 @@ elif fs*fi<0:
 else:
 	st.write("El intervalo es inadecuado")
 
+# Create a range of x values for the graph
+x_vals = np.linspace(Xi, Xs, 100)
+y_vals = [eval(Fun) for x in x_vals]
+
+# Plot the function graph
+plt.plot(x_vals, y_vals)
+plt.axhline(y=0, color='r', linestyle='--')  # Add x-axis line
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Graph of f(x)')
+st.pyplot(plt)
+
+	
 d = {'Iteración': N,'Xn':xm,'fn':fm,'Error':E}
 tabla = pd.DataFrame(data = d)
 st.table(tabla)
